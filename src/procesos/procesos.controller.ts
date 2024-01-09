@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Logger,
+} from '@nestjs/common';
 import { ProcesosService } from './procesos.service';
 import { CreateProcesoDto } from './dto/create-proceso.dto';
 import { UpdateProcesoDto } from './dto/update-proceso.dto';
@@ -7,8 +16,11 @@ import { UpdateProcesoDto } from './dto/update-proceso.dto';
 export class ProcesosController {
   constructor(private readonly procesosService: ProcesosService) {}
 
+  private readonly logger: Logger = new Logger(ProcesosController.name);
+
   @Post()
   create(@Body() createProcesoDto: CreateProcesoDto) {
+    this.logger.log(createProcesoDto);
     return this.procesosService.create(createProcesoDto);
   }
 

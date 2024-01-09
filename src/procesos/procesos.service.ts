@@ -13,7 +13,8 @@ export class ProcesosService {
   ) {}
 
   create(createProcesoDto: CreateProcesoDto) {
-    return 'This action adds a new proceso';
+    this.logger.log(createProcesoDto);
+    return this.procesosModel.create(createProcesoDto);
   }
 
   findAll() {
@@ -25,14 +26,26 @@ export class ProcesosService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} proceso`;
+    return this.procesosModel.findOne({
+      where: {
+        id_proceso: id,
+      },
+    });
   }
 
   update(id: number, updateProcesoDto: UpdateProcesoDto) {
-    return `This action updates a #${id} proceso`;
+    return this.procesosModel.update(updateProcesoDto, {
+      where: {
+        id_proceso: id,
+      },
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} proceso`;
+    return this.procesosModel.destroy({
+      where: {
+        id_proceso: id,
+      },
+    });
   }
 }

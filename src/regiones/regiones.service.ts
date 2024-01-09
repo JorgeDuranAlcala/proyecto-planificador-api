@@ -12,9 +12,16 @@ export class RegionesService {
     @InjectModel(Regiones) private readonly regionesModel: typeof Regiones,
   ) {}
 
-  create(createRegioneDto: CreateRegioneDto) {
+  async create(createRegioneDto: CreateRegioneDto) {
     try {
-      return this.create(createRegioneDto);
+      const regiones = await this.regionesModel.findAll();
+      const max = regiones.reduce((prev, current) => {
+        return prev.id_region > current.id_region ? prev : current;
+      });
+      return this.regionesModel.create({
+        ...createRegioneDto,
+        id_region: max.id_region + 1,
+      });
     } catch (error) {
       this.logger.error(error);
     }

@@ -13,7 +13,11 @@ export class NucleosService {
   ) {}
 
   create(createNucleoDto: CreateNucleoDto) {
-    return 'This action adds a new nucleo';
+    try {
+      return this.nucleosModel.create(createNucleoDto);
+    } catch (error) {
+      this.logger.error(error.message);
+    }
   }
 
   findAll() {
@@ -25,14 +29,26 @@ export class NucleosService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} nucleo`;
+    return this.nucleosModel.findOne({
+      where: {
+        id_nucleo: id,
+      },
+    });
   }
 
   update(id: number, updateNucleoDto: UpdateNucleoDto) {
-    return `This action updates a #${id} nucleo`;
+    return this.nucleosModel.update(updateNucleoDto, {
+      where: {
+        id_nucleo: id,
+      },
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} nucleo`;
+    return this.nucleosModel.destroy({
+      where: {
+        id_nucleo: id,
+      },
+    });
   }
 }

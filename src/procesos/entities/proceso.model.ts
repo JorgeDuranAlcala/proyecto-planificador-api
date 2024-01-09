@@ -18,7 +18,7 @@ export class Procesos extends Model<Procesos> {
   @PrimaryKey
   @AutoIncrement
   @AllowNull(false)
-  @Column
+  @Column(DataType.INTEGER)
   id_proceso: number;
 
   @AllowNull(false)

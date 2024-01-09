@@ -1,1 +1,3 @@
-export class CreateProcesoDto {}
+export class CreateProcesoDto {
+  proceso: string;
+}

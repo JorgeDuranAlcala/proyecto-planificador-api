@@ -12,6 +12,7 @@ import { Regiones } from './regiones/entities/region.model';
 import { Nucleos } from './nucleos/entities/nucleo.model';
 import { Procesos } from './procesos/entities/proceso.model';
 import { Indicadores } from './indicadores/entities/indicadores.model';
+import { IndicadoresV } from './indicadores/entities/indicadores_v.model';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { Indicadores } from './indicadores/entities/indicadores.model';
       password: 'luna2001',
       database: 'proyecto-pasantias', */
       uri: 'postgres://rtssrddj:IPfqiC4LC6n9dNhDtWyWrXJbOuu3ltvy@berry.db.elephantsql.com/rtssrddj',
-      models: [Estados, Regiones, Nucleos, Procesos, Indicadores],
+      models: [Estados, Regiones, Nucleos, Procesos, Indicadores, IndicadoresV],
       autoLoadModels: true,
       synchronize: true,
     }),
