@@ -3,10 +3,10 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   Logger,
+  Put,
 } from '@nestjs/common';
 import { NucleosService } from './nucleos.service';
 import { CreateNucleoDto } from './dto/create-nucleo.dto';
@@ -34,7 +34,7 @@ export class NucleosController {
     return this.nucleosService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateNucleoDto: UpdateNucleoDto) {
     return this.nucleosService.update(+id, updateNucleoDto);
   }
