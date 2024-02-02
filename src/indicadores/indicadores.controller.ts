@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Logger,
 } from '@nestjs/common';
 import { IndicadoresService } from './indicadores.service';
 import { CreateIndicadoreDto } from './dto/create-indicadore.dto';
@@ -14,10 +15,13 @@ import { InsertarValorIndicadorDto } from './dto/insertar-valorIndicador';
 
 @Controller('indicadores')
 export class IndicadoresController {
+  logger = new Logger(IndicadoresController.name);
+
   constructor(private readonly indicadoresService: IndicadoresService) {}
 
   @Post()
   create(@Body() createIndicadoreDto: CreateIndicadoreDto) {
+    this.logger.log(createIndicadoreDto);
     return this.indicadoresService.create(createIndicadoreDto);
   }
 

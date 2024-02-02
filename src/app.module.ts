@@ -17,13 +17,13 @@ import { IndicadoresV } from './indicadores/entities/indicadores_v.model';
 @Module({
   imports: [
     SequelizeModule.forRoot({
-      dialect: 'postgres',
-      /*       host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'luna2001',
-      database: 'proyecto-pasantias', */
-      uri: 'postgres://rtssrddj:IPfqiC4LC6n9dNhDtWyWrXJbOuu3ltvy@berry.db.elephantsql.com/rtssrddj',
+      dialect: 'mysql',
+      host: 'proyecto-pasantias-db-proyecto-pasantias.a.aivencloud.com',
+      port: 20658,
+      username: 'avnadmin',
+      password: 'AVNS_mScxC62G-3lfOq3W0RN',
+      database: 'proyecto-pasantias',
+      /*       uri: 'postgres://rtssrddj:IPfqiC4LC6n9dNhDtWyWrXJbOuu3ltvy@berry.db.elephantsql.com/rtssrddj', */
       models: [Estados, Regiones, Nucleos, Procesos, Indicadores, IndicadoresV],
       autoLoadModels: true,
       synchronize: true,
@@ -34,6 +34,7 @@ import { IndicadoresV } from './indicadores/entities/indicadores_v.model';
     RegionesModule,
     IndicadoresModule,
   ],
+
   controllers: [AppController],
   providers: [AppService],
 })
