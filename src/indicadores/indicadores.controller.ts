@@ -29,6 +29,7 @@ export class IndicadoresController {
   insertarValorIndicador(
     @Body() insertarValorIndicadorDto: InsertarValorIndicadorDto,
   ) {
+    this.logger.log(insertarValorIndicadorDto);
     return this.indicadoresService.insertarValorIndicador(
       insertarValorIndicadorDto,
     );
