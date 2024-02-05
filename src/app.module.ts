@@ -13,6 +13,8 @@ import { Nucleos } from './nucleos/entities/nucleo.model';
 import { Procesos } from './procesos/entities/proceso.model';
 import { Indicadores } from './indicadores/entities/indicadores.model';
 import { IndicadoresV } from './indicadores/entities/indicadores_v.model';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { Usuarios } from './usuarios/entities/usuario.model';
 
 @Module({
   imports: [
@@ -24,7 +26,15 @@ import { IndicadoresV } from './indicadores/entities/indicadores_v.model';
       password: 'AVNS_mScxC62G-3lfOq3W0RN',
       database: 'proyecto-pasantias',
       /*       uri: 'postgres://rtssrddj:IPfqiC4LC6n9dNhDtWyWrXJbOuu3ltvy@berry.db.elephantsql.com/rtssrddj', */
-      models: [Estados, Regiones, Nucleos, Procesos, Indicadores, IndicadoresV],
+      models: [
+        Estados,
+        Regiones,
+        Nucleos,
+        Procesos,
+        Indicadores,
+        IndicadoresV,
+        Usuarios,
+      ],
       autoLoadModels: true,
       synchronize: true,
     }),
@@ -33,6 +43,7 @@ import { IndicadoresV } from './indicadores/entities/indicadores_v.model';
     ProcesosModule,
     RegionesModule,
     IndicadoresModule,
+    UsuariosModule,
   ],
 
   controllers: [AppController],
