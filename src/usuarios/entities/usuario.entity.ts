@@ -1,5 +1,6 @@
 export class Usuario {
   cedula: string;
   nombre: string;
-  apelldio: string;
+  apellido: string;
+  profileUrl: string;
 }

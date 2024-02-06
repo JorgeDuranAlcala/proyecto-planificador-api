@@ -37,6 +37,10 @@ export class Usuarios extends Model<Usuarios> {
   @Column(DataType.STRING(255))
   password: string;
 
+  @AllowNull(false)
+  @Column(DataType.STRING(255))
+  profileUrl: string;
+
   /*   @AllowNull(true)
       @Column(DataType.STRING(1))
       trial125: string; */
